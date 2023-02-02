@@ -1,7 +1,7 @@
 package com.osmolka.page.cadeaubon.pdp;
 
 import com.osmolka.fw.annotation.PageFragment;
-import com.osmolka.fw.utils.Waiter;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +12,9 @@ public class DetailsComponent extends Base {
     @FindBy(css = "[type='button']")
     private WebElement btnAddToCart;
 
+    @Step
     public void addProductToCart() {
         btnAddToCart.click();
-        Waiter.waitABit(3000);
     }
 
     @Override

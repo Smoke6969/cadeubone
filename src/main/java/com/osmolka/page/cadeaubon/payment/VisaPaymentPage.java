@@ -3,6 +3,7 @@ package com.osmolka.page.cadeaubon.payment;
 import com.github.javafaker.CreditCardType;
 import com.github.javafaker.Faker;
 import com.osmolka.fw.annotation.Page;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,12 +33,14 @@ public class VisaPaymentPage extends Base {
     @FindBy(css = "[id='button_continue']")
     private WebElement btnSubmit;
 
+    @Step
     public void fillInvalidCardData() {
         edtCardName.sendKeys(userData.name().firstName() + " " + userData.name().lastName());
         edtCardNumber.sendKeys(userData.finance().creditCard(CreditCardType.VISA));
         edtCvv.sendKeys("111");
     }
 
+    @Step
     public void submitData() {
         wait.until((d) -> this.btnSubmit.isEnabled());
         btnSubmit.click();

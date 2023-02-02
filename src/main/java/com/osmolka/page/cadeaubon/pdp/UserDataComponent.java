@@ -2,6 +2,7 @@ package com.osmolka.page.cadeaubon.pdp;
 
 import com.github.javafaker.Faker;
 import com.osmolka.fw.annotation.PageFragment;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +33,7 @@ public class UserDataComponent extends Base {
     private List<WebElement> btnAddToCart;
 
 
+    @Step
     public Faker fill() {
 
         edtName.sendKeys(user.name().firstName());
@@ -46,6 +48,7 @@ public class UserDataComponent extends Base {
         return user;
     }
 
+    @Step
     public void submit() {
 
         wait.until((d) -> this.btnAddToCart.get(1).isDisplayed() && this.btnAddToCart.get(1).isEnabled());

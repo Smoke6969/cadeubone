@@ -2,6 +2,7 @@ package com.osmolka.page.cadeaubon.checkout;
 
 import com.github.javafaker.CreditCardType;
 import com.osmolka.fw.annotation.Page;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class CheckouBeginPage extends Base {
     @FindBy(xpath = ".//div[contains(text(), 'Betaling afronden')]")
     private WebElement btnProceedToCheckout;
 
+    @Step
     public void openPaymentMethod(CreditCardType card) {
         switch (card) {
             case VISA:

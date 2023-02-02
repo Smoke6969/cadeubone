@@ -48,7 +48,6 @@ public class InitialTests extends SpringBaseTestNGTest {
 
         headerPage.search(searchString);
 
-        assertTrue(headerPage.searchResults().isOpened());
         assertTrue(headerPage.searchResults().containsAll(searchString));
     }
 
@@ -58,14 +57,11 @@ public class InitialTests extends SpringBaseTestNGTest {
         preconditionSteps.startApplication();
 
         shopNavigationSteps.openPdp(productId);
-        assertTrue(pdp.isOpened());
 
         pdp.details().addProductToCart();
-        assertTrue(pdp.userData().isOpened());
 
         pdp.userData().fill();
         pdp.userData().submit();
-        assertTrue(shoppingCartPage.products().isOpened());
         assertTrue(shoppingCartPage.products().isPresent(productName));
     }
 
@@ -75,23 +71,16 @@ public class InitialTests extends SpringBaseTestNGTest {
         preconditionSteps.startApplication();
 
         shopNavigationSteps.openPdp(productId);
-        assertTrue(pdp.isOpened());
 
         pdp.details().addProductToCart();
-        assertTrue(pdp.userData().isOpened());
 
         var userData = pdp.userData().fill();
         pdp.userData().submit();
-        assertTrue(shoppingCartPage.products().isOpened());
 
         shoppingCartPage.proceedToCheckout();
-        assertTrue(shoppingCartPage.guestCheckoutData().isOpened());
-
         shoppingCartPage.guestCheckoutData().submitData(userData);
-        assertTrue(checkouBeginPage.isOpened());
 
         checkouBeginPage.openPaymentMethod(CreditCardType.VISA);
-        assertTrue(visaPaymentPage.isOpened());
 
         visaPaymentPage.fillInvalidCardData();
         visaPaymentPage.submitData();

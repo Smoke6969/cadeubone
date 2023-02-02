@@ -1,6 +1,7 @@
 package com.osmolka.page.cadeaubon.cart;
 
 import com.osmolka.fw.annotation.Page;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,11 +27,10 @@ public class ShoppingCartPage extends Base {
         return guestCheckoutDataComponent;
     }
 
+    @Step
     public void proceedToCheckout() {
         btnProceedToCheckout.click();
     }
-
-
 
     @Override
     public boolean isOpened() {

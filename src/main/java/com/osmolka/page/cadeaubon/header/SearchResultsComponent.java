@@ -1,10 +1,10 @@
 package com.osmolka.page.cadeaubon.header;
 
 import com.osmolka.fw.annotation.PageFragment;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ public class SearchResultsComponent extends Base {
     @FindBy(css = "._42f713dad2488b7e2407a870b6bde31a-css a")
     private List<WebElement> lstResultLinks;
 
+    @Step
     public boolean containsAll(String searchString) {
 
         for(WebElement currentResult : lstResultLinks) {

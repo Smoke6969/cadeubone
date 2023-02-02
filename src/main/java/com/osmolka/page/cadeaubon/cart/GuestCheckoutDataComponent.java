@@ -2,10 +2,10 @@ package com.osmolka.page.cadeaubon.cart;
 
 import com.github.javafaker.Faker;
 import com.osmolka.fw.annotation.PageFragment;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @PageFragment
@@ -23,6 +23,7 @@ public class GuestCheckoutDataComponent extends Base {
     @FindBy(xpath = ".//div[contains(text(), 'Ga verder')]")
     private WebElement btnProceedToCheckout;
 
+    @Step
     public void submitData(Faker user) {
 
         edtName.sendKeys(user.name().firstName());

@@ -1,11 +1,11 @@
 package com.osmolka.page.cadeaubon.cart;
 
 import com.osmolka.fw.annotation.PageFragment;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.StreamTokenizer;
 import java.util.List;
 
 
@@ -16,6 +16,7 @@ public class CartProductsComponent extends Base {
     @FindBy(css = ".b5ef9cb4a3d15d4256aa23e3ad81e20d-css")
     private List<WebElement> productNames;
 
+    @Step
     public boolean isPresent(String productName) {
         return productNames.stream().filter(product -> product.getText().contains(productName)).findFirst().isPresent();
     }

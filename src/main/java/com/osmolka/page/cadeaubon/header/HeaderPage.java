@@ -1,18 +1,12 @@
 package com.osmolka.page.cadeaubon.header;
 
 import com.osmolka.fw.annotation.Page;
+import com.osmolka.fw.annotation.Step;
 import com.osmolka.fw.utils.Waiter;
 import com.osmolka.page.Base;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.concurrent.TimeUnit;
 
 @Page
 public class HeaderPage extends Base {
@@ -32,15 +26,18 @@ public class HeaderPage extends Base {
         return mainMenuComponent;
     }
 
+    @Step
     public SearchResultsComponent searchResults() {
         return searchResultsComponent;
     }
 
+    @Step
     public void search(String searchValue) {
         edtSearchField.sendKeys(searchValue);
         Waiter.waitABit(3000);
     }
 
+    @Step
     public void openMainMenu() {
         lnkMainMenu.click();
     }
